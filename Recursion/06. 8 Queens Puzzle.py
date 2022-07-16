@@ -20,7 +20,7 @@ def set_queen(row, col, board, rows, cols, left_diagonals, right_diagonals):
     board[row][col] = '*'
     rows.add(row)
     cols.add(col)
-    left_diagonals.add(row-col)
+    left_diagonals.add(row - col)
     right_diagonals.add(row + col)
 
 
