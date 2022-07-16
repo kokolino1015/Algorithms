@@ -19,6 +19,7 @@ board = []
 [[board.append(' '.join(i).split()) for i in input().split()] for _ in range(rows)]
 str_result = []
 areas = 0
+
 for j in range(rows):
     for i in range(cols):
         if board[j][i] == '-':
