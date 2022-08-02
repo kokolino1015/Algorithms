@@ -1,21 +1,19 @@
-def binary_search(numbers, target):
-    left = 0
-    right = len(numbers) - 1
-    while left <= right:
-        mid_idx = (right + left)//2
-        mid_num = numbers[mid_idx]
-
-        if mid_num == target:
+def binary_search(left, right, numbers, target):
+    if left > right:
+        return -1
+    else:
+        mid_idx = (left + right) // 2
+        if numbers[mid_idx] == target:
             return mid_idx
-
-        if target > mid_num:
+        elif target > numbers[mid_idx]:
             left = mid_idx + 1
+            return binary_search(left, right, numbers, target)
         else:
             right = mid_idx - 1
-    return -1
+            return binary_search(left, right, numbers, target)
 
 
 numbers = [int(x) for x in input().split()]
 target = int(input())
 
-print(binary_search(numbers, target))
+print(binary_search(0, len(numbers) - 1, numbers, target))
