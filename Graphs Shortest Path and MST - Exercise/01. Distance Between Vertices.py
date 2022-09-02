@@ -1,0 +1,1 @@
+nodes = int(input())
