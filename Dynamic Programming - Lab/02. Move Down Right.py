@@ -25,14 +25,21 @@ for row in range(1, rows):
 row = rows - 1
 col = cols - 1
 result = deque()
-while True:
+while row > 0 and col > 0:
     result.appendleft([row, col])
-    if row == 0 and col == 0:
-        break
-    if dp[row][col - 1] > dp[row - 1][col]:
+    if dp[row][col - 1] >= dp[row - 1][col]:
         col -= 1
     else:
         row -= 1
 
+while row > 0:
+    result.appendleft([row, col])
+    row -= 1
 
-print(deque)
+while col > 0:
+    result.appendleft([row, col])
+    col -= 1
+
+result.appendleft([0, 0])
+
+print(*result, sep=' ')
