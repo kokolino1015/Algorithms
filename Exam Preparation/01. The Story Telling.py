@@ -14,9 +14,11 @@ graph = {}
 
 command = input()
 while command != 'End':
-    node, children_str = [x.strip() for x in command.split('->')]
-    children = children_str.split()
-    graph[node] = children
+    args = [x.strip() for x in command.split('->')]
+    if len(args) == 1:
+        graph[args[0]] = []
+    else:
+        graph[args[0]] = args[1].split(' ')
     command = input()
 visited = set()
 result = deque()
